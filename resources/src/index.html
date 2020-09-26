@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bootstrap 4, from LayoutIt!</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<h5 class="card-header">
+					Informacion del Empleado
+				</h5>
+				<div class="card-body">
+					<p class="card-text">
+					<h5 class="card-text">{{ $empleado->FirtsName}} {{ $empleado->LastName }}</h5>
+				</p></div>
+					<div class="card-body">
+				      <h1 class="card-text">Cargo: {{ $empleado->Title }}</h1>
+				      <ul class="list-group list-group-flush">
+				      @if($empleado->jefe_directo)
+				        <li class="list-group-item"> Jefe Directo:
+				        {{ $empleado->jefe_directo->FirstName }}
+				        {{ $empleado->jefe_directo->LastName }}
+				        </li>
+				        @else
+				        <h2 class="text-danger">No tiene Jefe directo</h2>
+				        @endif
+					</p>
+				</div>
+				<div class="card-footer">
+					<li class="list-group-item">
+				            Direccion: {{ $empleado->Address }} , {{ $empleado->City}}, {{ $empleado->Country }}
+				        <li class="list-group-item">
+				            Fecha Nacimietno: {{ $empleado->BirthDate->toFormattedDateString() }}  
+				        <li class="list-group-item">
+				            Fecha Contratacion: {{ $empleado->HireDate->toFormattedDateString() }}   
+				      </ul>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<div class="list-group">
+				 <a href="#" class="list-group-item list-group-item-action active">Subalternos</a>
+				<div class="list-group-item">
+					<br>
+					  @if($empleado->subalternos->count() !==0)
+					<h2 clas="text-success"></h2>
+					<ul class="list-group list-group-flush">
+					    @foreach( $empleado->subalternos as $subalterno)
+					    <li class="list-group-item"> {{ $subalterno->FirstName }} , {{ $subalterno->LastName }}</li> 
+
+					    @endforeach
+
+					</ul>
+					@else
+					<h2 class="text-danger">No tiene Subalternos</h2>
+					@endif
+				</div>
+				<div class="list-group-item">
+					<h4 class="list-group-item-heading">
+						List group item heading
+					</h4>
+					<p class="list-group-item-text">
+						...
+					</p>
+				</div>
+				<div class="list-group-item justify-content-between">
+					Help <span class="badge badge-secondary badge-pill">14</span>
+				</div> <a href="#" class="list-group-item list-group-item-action active justify-content-between">Home <span class="badge badge-light badge-pill">14</span></a>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<table class="table">
+				<thead>
+					<tr>
+						<h2 clas="text-success"> clientes: </h2>
+						@if($empleado->clientes->count() !==0)
+
+						<ul class="list-group list-group-flush">
+						    @foreach( $empleado->clientes as $cliente)
+						    <li class="list-group-item"> {{ $cliente->FirstName }} , {{ $cliente->LastName }}</li> 
+
+						    @endforeach
+
+						</ul>
+						@else
+						<h2 class="text-danger">No tiene Clientes</h2>
+						@endif
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>
