@@ -16,8 +16,12 @@
                     <div class="col-12 grid-margin">
 					 <div class="table" style="background-color: #D6F8FF;">
 					  <div class="card-body">
-						<h4 class="btn btn-dark text-left" href="{{ url('empleados/create')  }}">Nuevo Empleado</h4>
+                          
 <h1><i class="fas fa-list-alt">Lista de Empleados</i></h1>
+
+<a class="btn btn-dark" href="{{ url('empleados/create')  }}">
+    Nuevo Empleado
+</a>
 @if(session("mensaje"))
     <p class="alert-success">{{ session("mensaje")   }}</p>
 @endif

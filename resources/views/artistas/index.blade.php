@@ -16,8 +16,12 @@
                     <div class="col-12 grid-margin">
 					 <div class="table" style="background-color: #D6F8FF;">
 					  <div class="card-body">
-						<h4 class="btn btn-dark text-left" href="{{ url('artistas/create')  }}">Nuevo Artista</h4>
+
     <h1><i class="fas fa-list-alt">Lista de Artistas</i></h1>
+
+    <a class="btn btn-dark" href="{{ url('artistas/create')  }}">
+    Nuevo Artista
+    </a>
     <table>
        <thead>
          <tr>
@@ -40,6 +44,7 @@
                      </ul>
                      </td>
                  </tr>
+                 </form>
               @endforeach
               </tbody>
               </table>
